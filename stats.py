@@ -16,3 +16,15 @@ def get_num_chars_occurrence(file_content):
         return char_occurrence
     except Exception as e:
         raise Exception(f"Error counting characters: {str(e)}")
+
+
+def sort_by_occurrence(occurrence):
+    try:
+        return [
+            {"char": char, "num": count}
+            for char, count in sorted(occurrence.items(),
+                                      key=lambda x: x[1],
+                                      reverse=True)
+        ]
+    except Exception as e:
+        raise Exception(f"Error sorting characters occurrence: {str(e)}")

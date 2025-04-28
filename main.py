@@ -1,5 +1,6 @@
 from stats import get_num_chars_occurrence
 from stats import get_num_words
+from stats import sort_by_occurrence
 
 
 def get_book_text(file_path):
@@ -12,8 +13,14 @@ def main():
         book_text = get_book_text("books/frankenstein.txt")
         num_words = get_num_words(book_text)
         char_occurrence = get_num_chars_occurrence(book_text)
-        print(f"{num_words} words found in the document")
-        print(f"The most common characters in the document are: {char_occurrence}")
+        sorted_occurrence = sort_by_occurrence(char_occurrence)
+        print("============ BOOKBOT ============\n"
+              "Analyzing book found at books/frankenstein.txt...\n"
+              "----------- Word Count ----------\n"
+              f"Found {num_words} total words"
+              "----------- Character Count ----------\n"
+              f"{sorted_occurrence}\n"
+              "============= END ===============")
     except FileNotFoundError:
         print("Error: The specified file was not found.")
     except Exception as e:
