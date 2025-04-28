@@ -17,10 +17,12 @@ def main():
         print("============ BOOKBOT ============\n"
               "Analyzing book found at books/frankenstein.txt...\n"
               "----------- Word Count ----------\n"
-              f"Found {num_words} total words"
-              "----------- Character Count ----------\n"
-              f"{sorted_occurrence}\n"
-              "============= END ===============")
+              f"Found {num_words} total words\n"
+              "----------- Character Count ----------")
+        for dict in sorted_occurrence:
+            if dict["char"].isalpha():
+                print(f"{dict['char']}: {dict['num']}")
+        print("============= END ===============")
     except FileNotFoundError:
         print("Error: The specified file was not found.")
     except Exception as e:
